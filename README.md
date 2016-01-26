@@ -8,6 +8,7 @@ API para hacer consultas por numero de NIS de la ANDE.
 $ git clone https://github.com/cabupy/api-ande.git
 $ cd api-ande
 $ npm install
+$ npm start
 ```
 
 ### Licencia

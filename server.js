@@ -43,8 +43,8 @@ app.post('/consulta', function(req, res){
   }
 
   request.post({
-    url:'http://201.217.43.238:9080/consulta/consulta_02.php',
-    headers: { 'Origin': 'http://201.217.43.238:9080' },
+    url: config.urlAnde,
+    headers: { Origin: config.Origin },
     form: { name: req.body.nis }
   }, function(error, response, body){
     if(error) {
@@ -70,6 +70,7 @@ app.use('*', function(req, res, next){
   next();
 });
 
+// Arrancamos el Server Express
 console.time('Arrancamos el server en');
 var server = app.listen(port, ip, function() {
     console.log('API Ande - API en http://%s:%s', server.address().address, server.address().port);

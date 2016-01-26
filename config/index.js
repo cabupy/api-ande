@@ -9,4 +9,6 @@ module.exports = {
   },
   Port: 3120,
   IP: 'localhost',
+  urlAnde: 'http://201.217.43.238:9080/consulta/consulta_02.php',
+  Origin: 'http://201.217.43.238:9080',
 }
