@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var http = require('http');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var cors = require('cors');
@@ -26,11 +27,15 @@ app.use(function(req, res, next) {
     next();
 });
 
+// Configurar la ruta de archivos estáticos
+app.use('/', express.static(__dirname + '/public'));
+
 app.get('/', function(req, res){
-  res.status(200).json({
+  res.sendFile(__dirname + '/index.html');
+  /*res.status(200).json({
     success: true,
     message: 'Vamyal S.A. 2016 ! -  API para la ANDE'
-  });
+  });*/
 });
 
 app.post('/consulta', function(req, res){
@@ -72,7 +77,7 @@ app.use('*', function(req, res, next){
 
 // Arrancamos el Server Express
 console.time('Arrancamos el server en');
-var server = app.listen(port, ip, function() {
+var server = http.createServer(app).listen(port, ip, function() {
     console.log('API Ande - API en http://%s:%s', server.address().address, server.address().port);
     console.timeEnd('Arrancamos el server en');
 });

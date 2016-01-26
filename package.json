@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon server.js",
+    "test": "node server.js",
     "start": "node server.js",
-    "monitor": "nodemon server.js"
+    "monitor": "nodemon server.js",
+    "build": "browserify app.js > public/app.js -t babelify"
   },
   "keywords": [
     "ande",
@@ -24,6 +25,11 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "morgan": "^1.6.1",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "babel": "^5.5.8",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "jquery": "^2.1.4",
+    "react": "^0.13.3"
   }
 }
