@@ -1,0 +1,29 @@
+{
+  "name": "api-ande",
+  "description": "API para hacer consultas por numero de NIS de la ANDE.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js",
+    "monitor": "nodemon server.js"
+  },
+  "keywords": [
+    "ande",
+    "api",
+    "nis"
+  ],
+  "author": "Carlos Vallejos <carlos@vamyal.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cabupy/api-ande.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "morgan": "^1.6.1",
+    "request": "^2.67.0"
+  }
+}
