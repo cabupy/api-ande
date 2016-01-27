@@ -26,6 +26,12 @@ export default class AndeApp extends React.Component {
       });
       return;
     }
+    if ( nis < 100000 || nis > 9999999 ) {
+      this.setState({
+        htmlResponse: { html : 'Debe ingresar un numero de NIS ...' }
+      });
+      return;
+    }
     //console.log('NIS: ', nis)
     $.post('/consulta', {nis:nis}, (data) => {
       data.html = this.limpiarData(data.html)
