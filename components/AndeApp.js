@@ -42,7 +42,7 @@ export default class AndeApp extends React.Component {
         htmlResponse: data
       });
     })
-    .fail(function() {
+    .fail( () => {
       this.setState({
         htmlResponse: { html : 'Su busqueda no arrojo resultados.' }
       });
