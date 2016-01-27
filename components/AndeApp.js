@@ -32,11 +32,19 @@ export default class AndeApp extends React.Component {
       });
       return;
     }
+    this.setState({
+      htmlResponse: { html : 'Aguarde ...' }
+    });
     //console.log('NIS: ', nis)
     $.post('/consulta', {nis:nis}, (data) => {
       data.html = this.limpiarData(data.html)
       this.setState({
         htmlResponse: data
+      });
+    })
+    .fail(function() {
+      this.setState({
+        htmlResponse: { html : 'Su busqueda no arrojo resultados.' }
       });
     });
   }
