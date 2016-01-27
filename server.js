@@ -47,6 +47,14 @@ app.post('/consulta', function(req, res){
       return;
   }
 
+  if (req.body.nis == '' ) {
+      res.status(404).json({ error: 'Parametro nis vacio.' });
+      res.end();
+      return;
+  }
+
+  console.log('NIS: ', req.body.nis);
+
   request.post({
     url: config.urlAnde,
     headers: { Origin: config.Origin },
