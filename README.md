@@ -2,16 +2,17 @@
 
 API para hacer consultas por numero de NIS de la ANDE.
 
-### Clonar el respo e instalar dependencias.
+### Clonar el respo, instalar dependencias y usar la herramienta.
 
 ```bash
 $ git clone https://github.com/cabupy/api-ande.git
 $ cd api-ande
 $ npm install
-$ mkdir public
 $ npm run build
 $ npm start
 ```
+
+Luego abrir el browser en http://localhost:3120/ para usar la herramienta.
 
 ### author
 

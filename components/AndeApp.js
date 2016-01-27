@@ -26,6 +26,7 @@ export default class AndeApp extends React.Component {
       });
       return;
     }
+    console.log('NIS: ', nis)
     $.post('/consulta', {nis:nis}, (data) => {
       data.html = this.limpiarData(data.html)
       this.setState({
