@@ -17,7 +17,11 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors( config.optCors ));
-app.use(morgan('dev'));
+app.use(morgan('combined', {
+  skip: function (req, res) {
+    return req.method != 'POST'; 
+  }
+}));
 
 // Agragamos el header powered-by Vamyal S.A. en un middleware
 app.set('x-powered-by', false);
