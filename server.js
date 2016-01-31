@@ -17,12 +17,10 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors( config.optCors ));
-app.use(morgan('combined', {
-  skip: function (req, res) {
-    return req.method != 'POST'; 
-  }
-}));
-
+// Algunas cuestiones para estar detras de NGINX
+app.set('trust proxy', true);
+app.set('strict routing', true);
+app.set('case sensitive routing', true);
 // Agragamos el header powered-by Vamyal S.A. en un middleware
 app.set('x-powered-by', false);
 app.use(function(req, res, next) {
@@ -30,16 +28,16 @@ app.use(function(req, res, next) {
     res.header('X-Hello-Human', 'Somos @vamyalsa, Escribinos a <contacto@vamyal.com>');
     next();
 });
-
 // Configurar la ruta de archivos estáticos
 app.use('/', express.static(__dirname + '/public'));
+app.use(morgan('combined', {
+  skip: function (req, res) {
+    return req.method != 'POST';
+  }
+}));
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
-  /*res.status(200).json({
-    success: true,
-    message: 'Vamyal S.A. 2016 ! -  API para la ANDE'
-  });*/
 });
 
 app.post('/consulta', function(req, res){
